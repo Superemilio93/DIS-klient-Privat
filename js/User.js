@@ -1,13 +1,9 @@
 var urlUser = "http://localhost:8080/DIS_Server_Privat_war_exploded/user";
-var urlBook = "http://localhost:8080/DIS_Server_Privat_war_exploded/book";
-var urlCurriculum = "http://localhost:8080/DIS_Server_Privat_war_exploded/curriculum";
 
 
 function login() {
     var username = $("#inputUsername").val();
     var password = $("#inputPassword").val();
-
-
 
     $.ajax({
         url: urlUser + "/login",
@@ -18,20 +14,18 @@ function login() {
         })),
         success: function(data) {
             alert(data);
-
+            window.location.replace("https://www.google.dk");
+            window.open ("https://www.google.dk");
+            alert("Test")
             localStorage.setItem('token', data);
+            window.location.replace("loginMenuAdmin.html");
 
-            getUsers();
         },
         error: function(data) {
             alert(data.message);
         }
     });
 }
-
-
-
-
 
 function addUser() {
     var firstname = $("#inputFirstname").val();
@@ -52,6 +46,7 @@ function addUser() {
         })),
         success: function(data) {
             alert(data.message);
+
         },
         error: function(data) {
             alert(data.message);

@@ -29,11 +29,11 @@
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="books.html">Se alle bøger<span class="sr-only">(current)</span></a></li>
 
-                    <li><a href="FindBooks.html">Find Bøger</a></li>
+                    <li><a href="findBook.html">Find Bøger</a></li>
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="Login.html">Login</a></li>
+                    <li><a href="userLogin.html">Login</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
@@ -42,49 +42,35 @@
     <div class="page-header">
         <h1>Login side</h1>
     </div>
-    <table class="table">
+    </div>
 
-        <thead>
-
-        </thead>
-        <tbody id="booksTableBody">
-
-        <form action="action_page.php">
-
-
-</div>
 
 <div class="container">
-
-    <label><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" required>
-
-    <label><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
-
-    <button type="submit">Login</button>
-    <input type="checkbox" checked="checked"> Remember me
-</div>
-
-<div class="container" style="background-color:#f1f1f1">
-
-
-</div>
-</form>
-
-</tbody>
-
-
-</table>
-
-
+    <form>
+        <div class="form-group">
+            <label class="control-label">Brugernavn</label>
+             <input type="text" class="form-control" id="inputUsername"/>
+            <label class=""control-label>Adgangskode</label>
+                <input type="text" class="form-control" id="inputPassword"/>
+             <button type="submit" class="btn btn-primary" id="login">Login</button>
+        </div>
+    </form>
 </div>
 
 <script type="text/javascript" src="lib/js/jquery-3.1.1.js"></script>
 <script type="text/javascript" src="lib/js/bootstrap.js"></script>
-<script type="text/javascript" src="js/books.page.js"></script>
+    <script src="js/User.js"></script>
 
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#login").click(function() {
+                login();
+            });
 
+           // getbooks();
+
+        });
+    </script>
 
 </body>
 </html>

@@ -1,7 +1,5 @@
 var urlBook = "http://localhost:8080/DIS_Server_Privat_war_exploded/book";
 
-
-
 $(document).ready(function () {
 
     var $booksTableBody = $("#booksTableBody");
@@ -10,16 +8,12 @@ $(document).ready(function () {
 
         url: "http://localhost:8080/DIS_Server_Privat_war_exploded/book",
         method: "GET",
-
-
         dataType: "json",
         contentType: "application/json",
         success: function (data, status, xhr) {
 
             var dec = encryptDecrypt(data);
             var tests = JSON.parse(dec);
-
-
 
             tests.forEach(function (test) {
 
@@ -34,14 +28,10 @@ $(document).ready(function () {
                     "<td>" + test.priceCDON + "</td>" +
                     "<td>" + test.publisher + "</td>" +
                     "<td>" + test.author    + "</td>" +
-
-
-
                     "</tr>"
                 );
 
             });
-
 
         },
         error: function(a, b, c){
@@ -61,5 +51,4 @@ function encryptDecrypt(input) {
     }
     return output.join("");
 }
-
 
