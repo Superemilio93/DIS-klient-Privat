@@ -1,7 +1,6 @@
 var urlBook = "http://localhost:8080/DIS_Server_Privat_war_exploded/book";
 
-$(document).ready(function () {
-
+function getBooks() {
     var $booksTableBody = $("#booksTableBody");
 
     $.ajax({
@@ -12,26 +11,43 @@ $(document).ready(function () {
         contentType: "application/json",
         success: function (data, status, xhr) {
 
-            var dec = encryptDecrypt(data);
-            var tests = JSON.parse(dec);
+            var dec = JSON.parse(encryptDecrypt(data));
 
-            tests.forEach(function (test) {
+            $("#booksTable").DataTable({
+                data: dec,
+                columns: [
+                    { data : "bookID" },
+                    { data : "title" },
+                    { data : "version" },
+                    { data : "ISBN" },
+                    { data : "priceAB" },
+                    { data : "priceSAXO" },
+                    { data : "priceCDON" },
+                    { data : "publisher" },
+                    { data : "author" }
+                ]
+            });
+
+            /*
+
+            tests.forEach(function (book) {
 
                 $booksTableBody.append(
                     "<tr>" +
-                    "<td>" + test.bookID    + "</td>" +
-                    "<td>" + test.title     + "</td>" +
-                    "<td>" + test.version   + "</td>" +
-                    "<td>" + test.ISBN      + "</td>" +
-                    "<td>" + test.priceAB   + "</td>" +
-                    "<td>" + test.priceSAXO + "</td>" +
-                    "<td>" + test.priceCDON + "</td>" +
-                    "<td>" + test.publisher + "</td>" +
-                    "<td>" + test.author    + "</td>" +
+                    "<td>" + book.bookID    + "</td>" +
+                    "<td>" + book.title     + "</td>" +
+                    "<td>" + book.version   + "</td>" +
+                    "<td>" + book.ISBN      + "</td>" +
+                    "<td>" + book.priceAB   + "</td>" +
+                    "<td>" + book.priceSAXO + "</td>" +
+                    "<td>" + book.priceCDON + "</td>" +
+                    "<td>" + book.publisher + "</td>" +
+                    "<td>" + book.author    + "</td>" +
                     "</tr>"
                 );
 
             });
+            */
 
         },
         error: function(a, b, c){
@@ -39,7 +55,7 @@ $(document).ready(function () {
         }
 
     });
-});
+}
 
 function encryptDecrypt(input) {
     var key = ['A', 'B', 'C']; //Can be any chars, and any size array

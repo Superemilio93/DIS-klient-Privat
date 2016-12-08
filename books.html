@@ -1,9 +1,12 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 
     <link rel="stylesheet" href="lib/css/bootstrap.css">
+    <link rel="stylesheet" href="lib/css/dataTables.bootstrap.min.css">
 
     <meta charset="UTF-8">
     <title>Title</title>
@@ -39,31 +42,23 @@
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
-    </nav>
-
+        </nav>
     <div class="page-header">
         <h1>Se alle bøger</h1>
     </div>
-    <table class="table">
 
-    <thead>
-    <th> BookID </th>
-    <th> Title </th>
-    <th> Version </th>
-    <th> ISBN </th>
-    <th> Pris AB </th>
-    <th> Pris Saxo </th>
-    <th> Pris CDON </th>
-    <th> Publisher </th>
-    <th> Author </th>
-    </thead>
-    <tbody id="booksTableBody">
-
-
-
-    </tbody>
-
-
+    <table id="booksTable" class="table">
+        <thead>
+            <th> BookID </th>
+            <th> Title </th>
+            <th> Version </th>
+            <th> ISBN </th>
+            <th> Pris AB </th>
+            <th> Pris Saxo </th>
+            <th> Pris CDON </th>
+            <th> Publisher </th>
+            <th> Author </th>
+        </thead>
     </table>
 
 
@@ -71,7 +66,17 @@
 
 <script type="text/javascript" src="lib/js/jquery-3.1.1.js"></script>
 <script type="text/javascript" src="lib/js/bootstrap.js"></script>
+<script type="text/javascript" src="lib/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="lib/js/dataTables.bootstrap.min.js"></script>
 <script type="text/javascript" src="js/Book.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        getBooks();
+    });
+</script>
+
+
 
 
 

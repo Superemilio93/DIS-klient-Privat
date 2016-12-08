@@ -2,11 +2,11 @@
 <html lang="en">
 
 <head>
-
-    <link rel="stylesheet" href="lib/css/bootstrap.css">
-
     <meta charset="UTF-8">
     <title>Title</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
 </head>
 
 <body>
@@ -42,35 +42,44 @@
     <div class="page-header">
         <h1>Login side</h1>
     </div>
-    </div>
+</div>
 
 
 <div class="container">
     <form>
         <div class="form-group">
-            <label class="control-label">Brugernavn</label>
-             <input type="text" class="form-control" id="inputUsername"/>
-            <label class=""control-label>Adgangskode</label>
-                <input type="text" class="form-control" id="inputPassword"/>
-             <button type="submit" class="btn btn-primary" id="login">Login</button>
+            <div class="form-group">
+                <label class="control-label" for="inputUsername">Brugernavn</label>
+                <input type="text" class="form-control" id="inputUsername" value="hans"/>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label" for="inputPassword">Adgangskode</label>
+                <input type="text" class="form-control" id="inputPassword" value="123"/>
+            </div>
+
+            <div class="form-group">
+                <button type="button" class="btn btn-primary" id="login">Login</button>
+            </div>
         </div>
     </form>
 </div>
 
 <script type="text/javascript" src="lib/js/jquery-3.1.1.js"></script>
 <script type="text/javascript" src="lib/js/bootstrap.js"></script>
-    <script src="js/User.js"></script>
+<script type="text/javascript" src="js/User.js"></script>
 
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $("#login").click(function() {
-                login();
-            });
-
-           // getbooks();
-
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#login").click(function() {
+            event.preventDefault();
+            login();
         });
-    </script>
+
+        // getbooks();
+
+    });
+</script>
 
 </body>
 </html>

@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="lib/css/bootstrap.css">
+    <link rel="stylesheet" href="lib/css/dataTables.bootstrap.min.css">
 
     <meta charset="UTF-8">
-    <title>Administrator-Login</title>
+    <title>Title</title>
 </head>
 <body>
 <div class="container">
@@ -28,7 +29,6 @@
 
                     <li><a href="findBook.html">Find Bøger</a></li>
                     <li><a href="createUser.html">Opret Bruger</a></li>
-                    <li><a href="seeAndUpdateUser.html">Se alle brugere</a></li>
 
                 </ul>
 
@@ -37,9 +37,44 @@
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
-        </nav>
+    </nav>
+    <div class="page-header">
+        <h1>Se alle Brugere</h1>
     </div>
 
 
+    <table id="booksTable" class="table">
+        <thead>
+        <th> UserID </th>
+        <th> Fornavn </th>
+        <th> Efternavn </th>
+        <th> Brugernavn </th>
+        <th> Email</th>
+        <th> Password</th>
+        <th> Brugertype </th>
+        </thead>
+    </table>
+
+
+</div>
+
+<script type="text/javascript" src="lib/js/jquery-3.1.1.js"></script>
+<script type="text/javascript" src="lib/js/bootstrap.js"></script>
+<script type="text/javascript" src="lib/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="lib/js/dataTables.bootstrap.min.js"></script>
+<script type="text/javascript" src="js/User.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        getUsers();
+    });
+</script>
+
+
 </body>
+
+
+
+
+</table>
 </html>
