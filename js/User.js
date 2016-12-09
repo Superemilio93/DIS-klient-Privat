@@ -24,16 +24,16 @@ function login() {
             alert(user.usertype);
             */
 
-            window.location.replace("loginMenuAdmin.html");
+           // window.location.replace("loginMenuAdmin.html");
 
             var userMenu = JSON.parse(user);
             if (userMenu.usertype == 1) {
                 alert("Velkommen Admin");
+                window.location.replace("loginMenuAdmin.html");
             } else {
                 alert("Velkommen bruger");
+                window.location.replace("loginMenuUser.html");
             }
-
-
         },
         error: function(data) {
             alert(data.message);
@@ -68,16 +68,22 @@ function addUser() {
     });
 }
 
-
-function deleteUser() {
-    var userID = $("#6").val();
+function editUser() {
+    var firstname = $("#inputFirstname").val();
+    var lastname = $("#inputLastname").val();
+    var username = $("#inputUsername").val();
+    var email = $("#inputEmail").val();
+    var password = $("#inputPassword").val();
 
     $.ajax({
         url: urlUser + "/",
-        type: "DELETE",
+        type: "PUT",
         data: encryptDecrypt(JSON.stringify({
-            "userID" : userID,
-
+            "firstName" : firstname,
+            "lastName" : lastname,
+            "userName" : username,
+            "email" : email,
+            "password" : password
         })),
         success: function(data) {
             alert(data.message);
@@ -92,20 +98,53 @@ function deleteUser() {
 
 
 
+
+
+
+
+
+
+
+function deleteUser(row) {
+
+    var sessionUser = JSON.parse(localStorage.getItem('user'));
+
+    var user = row.data();
+
+    $.ajax({
+        url: urlUser + "/" + user.userID,
+        type: "DELETE",
+        headers: {
+            "authorization" : sessionUser.token
+        },
+        success: function(data) {
+            $('#usersTable').DataTable().row( $(row).parents('tr') ).remove().draw();
+            alert("Bruger " + user.userName + " er nu slettet")
+
+        },
+        error: function(data) {
+            alert(data.message);
+        }
+    });
+}
+
+
+
+
 function getUsers() {
 
-    var user = JSON.parse(localStorage.getItem('user'));
+    var sessionUser = JSON.parse(localStorage.getItem('user'));
 
     $.ajax({
         url: urlUser + "/",
         type: "GET",
         headers: {
-            "authorization" : user.token
+            "authorization" : sessionUser.token
         },
         success: function(data) {
             var dec = JSON.parse(encryptDecrypt(data));
 
-            $("#booksTable").DataTable({
+            $("#usersTable").DataTable({
                 data: dec,
                 columns: [
                     { data : "userID" },
@@ -114,20 +153,11 @@ function getUsers() {
                     { data : "userName" },
                     { data : "email" },
                     { data : "password" },
-                    { data : "userType" }
+                    { data : "userType" },
+                    { defaultContent: "<button class='btn btn-danger' id='deleteButton'>Slet</button>"}
                 ]
             });
 
-/*
-
-            <th> UserID </th>
-            <th> Fornavn </th>
-            <th> Efternavn </th>
-            <th> Brugernavn </th>
-            <th> Email</th>
-            <th> Password</th>
-            <th> Brugertype </th>
-            */
         },
         error: function(data) {
             alert(data.message);
@@ -146,3 +176,4 @@ function encryptDecrypt(input) {
     }
     return output.join("");
 }
+

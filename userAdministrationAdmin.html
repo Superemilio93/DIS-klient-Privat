@@ -29,11 +29,12 @@
 
                     <li><a href="findBook.html">Find Bøger</a></li>
                     <li><a href="createUser.html">Opret Bruger</a></li>
+                    <li><a href="userAdministrationAdmin.html">Se alle brugere</a></li>
 
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="userLogin.html">Login</a></li>
+                    <li><a href="loginMenu.html">Login</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
@@ -43,7 +44,7 @@
     </div>
 
 
-    <table id="booksTable" class="table">
+    <table id="usersTable" class="table">
         <thead>
         <th> UserID </th>
         <th> Fornavn </th>
@@ -52,6 +53,7 @@
         <th> Email</th>
         <th> Password</th>
         <th> Brugertype </th>
+        <th> Slet bruger </th>
         </thead>
     </table>
 
@@ -68,6 +70,11 @@
     $(document).ready(function() {
         getUsers();
     });
+
+    $('#usersTable').on( 'click', '#deleteButton', function () {
+        var row = $("#usersTable").DataTable().row( $(this).parents('tr') );
+        deleteUser(row)
+    } );
 </script>
 
 

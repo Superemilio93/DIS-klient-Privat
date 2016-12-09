@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <link rel="stylesheet" href="lib/css/bootstrap.css">
+    <link rel="stylesheet" href="lib/css/dataTables.bootstrap.min.css">
 
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-
 <body>
 <div class="container">
     <nav class="navbar navbar-default">
@@ -29,9 +27,10 @@
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="books.html">Se alle bøger<span class="sr-only">(current)</span></a></li>
 
-
                     <li><a href="findBook.html">Find Bøger</a></li>
                     <li><a href="createUser.html">Opret Bruger</a></li>
+                    <li><a href="userAdministrationUser.html">Ret brugeroplysninger</a></li>
+
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
@@ -40,46 +39,49 @@
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>
-
     <div class="page-header">
-        <h1>Find bøger</h1>
+        <h1>Se alle Brugere</h1>
     </div>
-    <table class="table">
 
+
+    <table id="usersTable" class="table">
         <thead>
-
+        <th> UserID </th>
+        <th> Fornavn </th>
+        <th> Efternavn </th>
+        <th> Brugernavn </th>
+        <th> Email</th>
+        <th> Password</th>
+        <th> Brugertype </th>
+        <th> Slet bruger </th>
         </thead>
-        <tbody id="booksTableBody">
-        <form>
-            <p>Vælg uddannelse:</p>
-
-            <select>
-                <option semester=>HA(IT)</option>
-                <option semester=>HA(Mat)</option>
-
-            </select>
-            <p>Vælg semester:</p>
-            <select>
-
-                <option value=>1.semester</option>
-                <option value=>3.Semester</option>
-                <option value=>5.Semester</option>
-            </select>
-            <button type="submit">Find bøger</button>
-        </form>
-
-</tbody>
-
-
-</table>
+    </table>
 
 
 </div>
 
 <script type="text/javascript" src="lib/js/jquery-3.1.1.js"></script>
 <script type="text/javascript" src="lib/js/bootstrap.js"></script>
+<script type="text/javascript" src="lib/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="lib/js/dataTables.bootstrap.min.js"></script>
+<script type="text/javascript" src="js/User.js"></script>
 
+<script type="text/javascript">
+    $(document).ready(function() {
+        getUsers();
+    });
+
+    $('#usersTable').on( 'click', '#deleteButton', function () {
+        var row = $("#usersTable").DataTable().row( $(this).parents('tr') );
+        deleteUser(row)
+    } );
+</script>
 
 
 </body>
+
+
+
+
+</table>
 </html>
