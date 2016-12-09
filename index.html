@@ -1,11 +1,17 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <link rel="stylesheet" href="lib/css/bootstrap.css">
+    <link rel="stylesheet" href="lib/css/dataTables.bootstrap.min.css">
 
     <meta charset="UTF-8">
-    <title>Bruger-Login</title>
+    <title>Title</title>
 </head>
+
 <body>
 <div class="container">
     <nav class="navbar navbar-default">
@@ -18,17 +24,17 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Bruger Menu</a>
+                <a class="navbar-brand" href="#">Bogbutik</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
+
                     <li><a href="index.html">Forside</a></li>
                     <li><a href="books.html">Se alle bøger</a></li>
                     <li><a href="findBook.html">Find Bøger</a></li>
                     <li><a href="createUser.html">Opret Bruger</a></li>
-                    <li><a href="userAdministrationUser.html">Ret brugeroplysninger</a></li>
 
                 </ul>
 
@@ -38,7 +44,25 @@
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>
-</div>
+    <div class="page-header">
+        <h1>Velkommen til BookIT</h1>
+    </div>
+    <p>Her kan du finde den billigste pris på dine studiebøger.</p>
+
+<script type="text/javascript" src="lib/js/jquery-3.1.1.js"></script>
+<script type="text/javascript" src="lib/js/bootstrap.js"></script>
+<script type="text/javascript" src="lib/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="lib/js/dataTables.bootstrap.min.js"></script>
+<script type="text/javascript" src="js/Book.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        getBooks();
+    });
+</script>
+
+
+
 
 
 </body>

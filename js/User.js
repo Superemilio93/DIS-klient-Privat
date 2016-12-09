@@ -24,8 +24,6 @@ function login() {
             alert(user.usertype);
             */
 
-           // window.location.replace("loginMenuAdmin.html");
-
             var userMenu = JSON.parse(user);
             if (userMenu.usertype == 1) {
                 alert("Velkommen Admin");
