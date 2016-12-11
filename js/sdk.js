@@ -2,12 +2,9 @@ var urlUser = "http://localhost:8080/DIS_Server_Privat_war_exploded/user";
 var urlBook = "http://localhost:8080/DIS_Server_Privat_war_exploded/book";
 var urlCurriculum = "http://localhost:8080/DIS_Server_Privat_war_exploded/curriculum";
 
-
 function login() {
     var username = $("#inputUsername").val();
     var password = $("#inputPassword").val();
-
-
 
     $.ajax({
         url: urlUser + "/login",
@@ -28,10 +25,6 @@ function login() {
         }
     });
 }
-
-
-
-
 
 function addUser() {
     var firstname = $("#inputFirstname").val();
