@@ -4,6 +4,7 @@
 <head>
 
     <link rel="stylesheet" href="lib/css/bootstrap.css">
+    <link rel="stylesheet" href="lib/css/dataTables.bootstrap.min.css">
 
     <meta charset="UTF-8">
     <title>Title</title>
@@ -27,60 +28,82 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><a href="index.html">Forside</a></li>
                     <li><a href="books.html">Se alle bøger</a></li>
                     <li><a href="findBook.html">Find Bøger</a></li>
-                    <li><a href="createUser.html">Opret Bruger</a></li>
-                    <li><a href="editUser.html">Rediger bruger</a></li>
+                    <li><a href="userAdministrationAdmin.html">Se alle brugere</a></li>
+                    <li><a href="editUserAdmin.html">Rediger bruger</a></li>
 
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="loginMenu.html">Login</a></li>
+                    <li><a href="loginMenu.html">Logud</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>
 
-    <div class="page-header">
-        <h1>Find bøger</h1>
+
+    <div class="form-group form-group-md">
+        <div class="form-group">
+            <div class="page-header">
+                <h1>Find bøger</h1>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <form>
+                <label for="selectEducation">Vælg Uddannelse:</label>
+                <select id="selectEducation">
+                    <option value="1">HA(IT)</option>
+                    <option value="2">HA(Mat)</option>
+                </select>
+                <label for="selectSemester">Vælg Semester:</label>
+                <select id="selectSemester">
+                    <option value="1">1.Semester</option>
+                    <option value="2">3.Semester</option>
+                    <option value="3">5.Semester</option>
+                </select>
+                <button type="button" class="btn btn-primary" id="findBook">Find bøger</button>
+            </form>
+        </div>
+
+        <div class="form-group">
+            <table id="findBookTable" class="table">
+                <thead>
+                <th>Book ID</th>
+                <th>ISBN</th>
+                <th>Publisher</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Price AB</th>
+                <th>Price SAXO</th>
+                <th>Price CDON</th>
+                <th>Version</th>
+                </thead>
+            </table>
+        </div>
+
     </div>
-    <table class="table">
-
-        <thead>
-
-        </thead>
-        <tbody id="booksTableBody">
-        <form>
-            <p>Vælg uddannelse:</p>
-
-            <select>
-                <option semester=>HA(IT)</option>
-                <option semester=>HA(Mat)</option>
-
-            </select>
-            <p>Vælg semester:</p>
-            <select>
-
-                <option value=>1.semester</option>
-                <option value=>3.Semester</option>
-                <option value=>5.Semester</option>
-            </select>
-            <button type="submit">Find bøger</button>
-        </form>
-
-</tbody>
-
-
-</table>
-
 
 </div>
 
 <script type="text/javascript" src="lib/js/jquery-3.1.1.js"></script>
 <script type="text/javascript" src="lib/js/bootstrap.js"></script>
+<script type="text/javascript" src="lib/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="lib/js/dataTables.bootstrap.min.js"></script>
+<script type="text/javascript" src="js/Curriculum.js"></script>
 
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#findBook").click(function() {
+            event.preventDefault();
+            findBook();
+        });
 
+        // getbooks();
+
+    });
+</script>
 
 </body>
 </html>

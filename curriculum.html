@@ -35,7 +35,6 @@
                     <li><a href="userAdministrationAdmin.html">Se alle brugere</a></li>
                     <li><a href="editUserAdmin.html">Rediger bruger</a></li>
 
-
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
@@ -43,22 +42,17 @@
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
-        </nav>
+    </nav>
     <div class="page-header">
-        <h1>Se alle bøger</h1>
+        <h1>Se semester</h1>
     </div>
 
     <table id="booksTable" class="table">
         <thead>
-            <th> BookID </th>
-            <th> Title </th>
-            <th> Version </th>
-            <th> ISBN </th>
-            <th> Pris AB </th>
-            <th> Pris Saxo </th>
-            <th> Pris CDON </th>
-            <th> Publisher </th>
-            <th> Author </th>
+        <th> CurriculumID </th>
+        <th> School </th>
+        <th> Education </th>
+        <th> Semester </th>
         </thead>
     </table>
 
@@ -73,11 +67,9 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-        getBooks();
+        getCurriculum();
     });
 </script>
-
-
 
 
 

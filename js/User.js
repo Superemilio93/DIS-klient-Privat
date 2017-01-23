@@ -177,7 +177,6 @@
                         {data: "email"},
                         {data: "password"},
                         {data: "userType"},
-                        {defaultContent: "<button class='btn btn-success' id='deleteButton'>Rediger bruger</button>"},
                         {defaultContent: "<button class='btn btn-danger' id='deleteButton'>Slet</button>"}
                     ]
                 });
@@ -189,13 +188,10 @@
         });
     }
 
-
         function logOut() {
             User.Storage.remove("user");
 
 }
-
-
 
     function encryptDecrypt(input) {
         var key = ['A', 'B', 'C']; //Can be any chars, and any size array

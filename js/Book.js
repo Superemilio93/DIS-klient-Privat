@@ -28,27 +28,6 @@ function getBooks() {
                 ]
             });
 
-            /*
-
-            tests.forEach(function (book) {
-
-                $booksTableBody.append(
-                    "<tr>" +
-                    "<td>" + book.bookID    + "</td>" +
-                    "<td>" + book.title     + "</td>" +
-                    "<td>" + book.version   + "</td>" +
-                    "<td>" + book.ISBN      + "</td>" +
-                    "<td>" + book.priceAB   + "</td>" +
-                    "<td>" + book.priceSAXO + "</td>" +
-                    "<td>" + book.priceCDON + "</td>" +
-                    "<td>" + book.publisher + "</td>" +
-                    "<td>" + book.author    + "</td>" +
-                    "</tr>"
-                );
-
-            });
-            */
-
         },
         error: function(a, b, c){
             console.log(a, b, c);
